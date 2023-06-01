@@ -1,0 +1,75 @@
+.tutorial-body {
+  background: linear-gradient(to bottom, #47d5f8, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.tutorial-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  background: linear-gradient(to bottom, #fffffff7, #ffffff28);  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 800px;
+  width: 80%;
+}
+
+.tutorial-title {
+  color: #5e00b6;
+  font-size: 34px;
+  font-family: constantia, sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.back-button {
+  display: flex;
+  align-items: center;
+  width: 20px;
+  color: rgb(41, 36, 62);
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: #5900ff;
+}
+
+.tutorial-container p {
+  color: #2c2828;
+  font-family: "Helvetica", sans-serif;
+  line-height: 1.5;
+}
+
+.tutorial-container ul {
+  list-style: disc;
+  font-family: "Helvetica", sans-serif;
+  padding-left: 20px;
+  color: rgb(49, 46, 55);
+  line-height: 1.5;
+}
+
+.tutorial-container ul li {
+  margin-bottom: 10px;
+  list-style: none;
+  position: relative;
+}
+
+.tutorial-container ul li:before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 31%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #5e00b6;
+  border-radius: 50%;
+}
+

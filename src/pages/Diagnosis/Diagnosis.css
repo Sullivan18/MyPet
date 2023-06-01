@@ -1,0 +1,155 @@
+.diagnosis-body {
+  background: linear-gradient(to bottom, #47d5f8, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.diagnosis-container {
+  background: linear-gradient(to bottom, #fffffff7, #ffffff28);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(141, 206, 232, 0.1);
+  padding: 20px;
+  max-width: 800px;
+  width: 40%; /* Altere o valor da largura conforme necessário */
+}
+
+.diagnosis-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #303b8f;
+  font-size: 24px;
+  font-family: constantia, sans-serif;
+}
+
+.file-input {
+  margin-bottom: 40px;
+}
+
+.choose-file-container {
+  display: flex;
+  justify-content: center;
+}
+
+.choose-file-button {
+  background-color: #3691E0;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.submit-button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  background-color: #3691E0;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.result {
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.result.saudável {
+  color: #6ec171; /* Verde */
+}
+
+.result.sarna {
+  color: rgb(246, 90, 90); /* Vermelho */
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-label {
+  margin-bottom: 20px;
+  color: #333333;
+  font-size: 16px;
+}
+
+.dog-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dog-image-saudavel {
+  border: 4px solid #4caf50;
+}
+
+.dog-image-sarna {
+  border: 4px solid #ff0000;
+}
+
+/* Estilos para telas maiores */
+@media (min-width: 768px) {
+  .diagnosis-container {
+    padding: 15px;
+  }
+  
+  .diagnosis-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  
+  .dog-image {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Estilos para telas médias */
+@media (max-width: 767px) {
+  .diagnosis-container {
+    padding: 20px;
+  }
+  
+  .diagnosis-title {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .dog-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Estilos para telas menores */
+@media (max-width: 480px) {
+  .diagnosis-container {
+    padding: 10px;
+  }
+  
+  .diagnosis-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .dog-image {
+    width: 100px;
+    height: 100px;
+  }
+}

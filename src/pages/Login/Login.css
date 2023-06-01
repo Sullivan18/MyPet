@@ -1,0 +1,143 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.login-body {
+  background-image: linear-gradient(rgba(68, 211, 255, 0.637), rgba(255, 255, 255, 0.861)), url('../../figs/background-login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  backdrop-filter: blur(3px);
+}
+
+.login-container {
+  background: linear-gradient(rgba(255, 255, 255, 0.861), rgba(117, 199, 237, 0));
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(141, 206, 232, 0.1);
+  padding: 30px;
+  max-width: 800px;
+  width: 80%;
+  margin-top: 40px;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #303b8f;
+  font-size: 30px;
+  font-family: 'Courier New', serif;
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.login-label {
+  margin-left: 22px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  color: #303b8f;
+  font-size: 18px;
+}
+
+.login-input {
+  margin-bottom: 15px;
+  width: 90%;
+  margin-left: 20px;
+  margin-right: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.login-button {
+  background-color: #3691e0;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.invalid {
+  border-color: #dc3545;
+}
+
+.login-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.login-message {
+  color: #28a745;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.invalid-message {
+  color: red;
+}
+
+.valid-message {
+  color: #28a745;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.login-input.invalid {
+  border-color: #dc3545;
+}
+
+.login-input.valid {
+  border-color: #28a745;
+}
+
+@media (min-width: 1024px) {
+  .login-input {
+    width:90%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .login-label{
+    margin-left: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-input {
+    width:90%;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .login-label{
+    margin-left: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .login-input {
+    width:85%;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  .login-label{
+    margin-left: 10px;
+  }
+}

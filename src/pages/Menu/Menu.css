@@ -1,0 +1,65 @@
+.menu-body {
+  background: linear-gradient(to bottom, #47d5f8, #ffffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.menu-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.menu-logo {
+  margin-top: 40px;
+  width: 700px; /* Defina a largura desejada */
+  height: auto; /* A altura será ajustada automaticamente de acordo com a largura */
+}
+
+.menu-container {
+  background-image: linear-gradient(rgba(117, 199, 237, 0), rgba(255, 255, 255, 0.861)), url('../../../src/figs/background_2-wFrONdqU4-transformed-removebg-preview.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(141, 206, 232, 0.1);
+  padding: 40px;
+  max-width: 600px; /* Altere o valor da largura conforme necessário */
+  width: 70%; /* Altere o valor da largura conforme necessário */
+}
+
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-button {
+  background-color: #3691E0;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 20px 20px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 200px;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* Remover o sublinhado */
+}
+
+
+.menu-button:hover {
+  background-color: #256cad;
+}
+
+

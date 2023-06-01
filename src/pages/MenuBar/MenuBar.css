@@ -1,0 +1,48 @@
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(134, 189, 199);
+  padding: 10px;
+}
+
+.menu {
+  display: flex;
+  height: 40px;
+}
+
+
+.menu ul {
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  height: 65px;
+}
+
+
+.menu li {
+  margin-right: 45px;
+  margin-left: 100px;
+  margin-top: -7px;
+  }
+
+.menu a {
+  text-decoration: none;
+  font-family: constantia, sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.menu a:hover {
+  color: #5900ff;
+  transition: color 0.3s ease;
+  border-bottom: none;
+}
+
+.logo-icon {
+  left:0;
+  width: 170px; 
+  margin-top: -8px;
+}
