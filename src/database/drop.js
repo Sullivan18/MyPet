@@ -1,14 +1,12 @@
-const sqlite3 = require('sqlite3').verbose();
+const fs = require('fs');
 
-const db = new sqlite3.Database('C:\\Users\\Sullivan\\Documents\\mypet-frontend\\src\\MyPet.db');
+const dbPath = 'C:/Users/Sullivan/Documents/mypet-frontend/src/MyPet.db';
 
-// Dropa a tabela "cachorros" se existir
-db.run(`DROP TABLE IF EXISTS cachorros`);
-
-// Dropa a tabela "cliente" se existir
-db.run(`DROP TABLE IF EXISTS cliente`);
-
-// Dropa a tabela "historico" se existir
-db.run(`DROP TABLE IF EXISTS historico`);
-
-db.close();
+// Verifica se o arquivo existe
+if (fs.existsSync(dbPath)) {
+    // Exclui o arquivo do banco de dados
+    fs.unlinkSync(dbPath);
+    console.log('Banco de dados excluído com sucesso!');
+} else {
+    console.log('O arquivo do banco de dados não foi encontrado.');
+}

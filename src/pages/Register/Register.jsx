@@ -136,6 +136,10 @@ function Register() {
       });
   };
 
+  const handleGoToLogin = () => {
+    navigate("/login");
+  };
+
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -180,7 +184,6 @@ function Register() {
 
   return (
     <div className="register-body">
-      <MenuBar />
       <div className="register-container">
         <h1 className="register-title">Cadastro</h1>
         <form>
@@ -224,6 +227,13 @@ function Register() {
               className="register-button"
             >
               Cadastrar
+            </button>
+            <button
+              type="button"
+              onClick={handleGoToLogin}
+              className="register-button"
+            >
+              Voltar para o Login
             </button>
           </div>
 

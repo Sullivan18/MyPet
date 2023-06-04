@@ -43,14 +43,34 @@ app.post('/register', (req, res) => {
                 console.error('Erro ao inserir os dados do cliente:', err);
                 res.status(500).json({ message: 'Erro ao inserir os dados do cliente.' });
             } else {
-                console.log('Dados do cliente foram inseridos com sucesso. ID:', this.lastID);
-                res.status(200).json({ message: 'Dados do cliente foram inseridos com sucesso.' });
+                const userId = this.lastID;
+                console.log('Dados do cliente foram inseridos com sucesso. ID:', userId);
+                res.status(200).json({ message: 'Dados do cliente foram inseridos com sucesso.', userId });
             }
         });
 
         db.close();
     });
 });
+
+app.get('/users', (req, res) => {
+    const dbPath = path.join(__dirname, '..', 'MyPet.db');
+    const db = new sqlite3.Database(dbPath);
+
+    const query = 'SELECT id, nome FROM cliente';
+
+    db.all(query, (err, rows) => {
+        if (err) {
+            console.error('Erro ao buscar os usuários:', err);
+            res.status(500).json({ message: 'Erro ao buscar os usuários.' });
+        } else {
+            res.status(200).json(rows);
+        }
+
+        db.close();
+    });
+});
+
 
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
@@ -59,7 +79,7 @@ app.post('/login', (req, res) => {
     const db = new sqlite3.Database(dbPath);
 
     // Verificar se o email e senha correspondem a um usuário válido
-    const loginQuery = 'SELECT email FROM cliente WHERE email = ? AND senha = ?';
+    const loginQuery = 'SELECT id, email FROM cliente WHERE email = ? AND senha = ?';
     db.get(loginQuery, [email, password], (err, row) => {
         if (err) {
             console.error('Erro ao fazer login:', err);
@@ -75,13 +95,73 @@ app.post('/login', (req, res) => {
         }
 
         // Login bem-sucedido
-        console.log('Login realizado com sucesso:', email);
-        res.status(200).json({ message: 'Login realizado com sucesso.' });
+        console.log('Login realizado com sucesso. ID:', row.id);
+        res.status(200).json({ message: 'Login realizado com sucesso.', userId: row.id });
 
         db.close();
     });
 });
 
+app.get('/users/:id', (req, res) => {
+    const userId = parseInt(req.params.id);
+
+    const dbPath = path.join(__dirname, '..', 'MyPet.db');
+    const db = new sqlite3.Database(dbPath);
+
+    const query = 'SELECT id, nome FROM cliente WHERE id = ?';
+    db.get(query, [userId], (err, row) => {
+        if (err) {
+            console.error('Erro ao buscar o usuário:', err);
+            res.status(500).json({ message: 'Erro ao buscar o usuário.' });
+        } else {
+            if (row) {
+                res.status(200).json(row);
+            } else {
+                res.status(404).json({ message: 'Usuário não encontrado.' });
+            }
+        }
+
+        db.close();
+    });
+});
+
+app.post("/cachorros", (req, res) => {
+    const { breed, name, sex, id_cliente } = req.body;
+
+    const dbPath = path.join(__dirname, "..", "MyPet.db");
+    const db = new sqlite3.Database(dbPath);
+
+    const insertQuery =
+        "INSERT INTO cachorros (raca, nome, sexo, id_cliente) VALUES (?, ?, ?, ?)";
+    db.run(insertQuery, [breed, name, sex, id_cliente], function (err) {
+        if (err) {
+            console.error("Erro ao cadastrar cachorro:", err);
+            res.status(500).json({ error: "Erro ao cadastrar cachorro" });
+        } else {
+            const dogId = this.lastID;
+            res.json({ id: dogId, message: "Cachorro cadastrado com sucesso" });
+        }
+    });
+});
+
+app.get('/users/:id/dogs', (req, res) => {
+    const userId = parseInt(req.params.id);
+
+    const dbPath = path.join(__dirname, '..', 'MyPet.db');
+    const db = new sqlite3.Database(dbPath);
+
+    const query = 'SELECT id, nome FROM cachorros WHERE id_cliente = ?';
+    db.all(query, [userId], (err, rows) => {
+        if (err) {
+            console.error('Erro ao buscar os cachorros do usuário:', err);
+            res.status(500).json({ message: 'Erro ao buscar os cachorros do usuário.' });
+        } else {
+            res.status(200).json(rows);
+        }
+
+        db.close();
+    });
+});
 
 app.listen(port, () => {
     console.log(`Servidor backend está executando na porta ${port}`);

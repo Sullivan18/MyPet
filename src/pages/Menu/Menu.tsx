@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaQuestionCircle,
   FaHistory,
@@ -6,15 +6,43 @@ import {
   FaStethoscope,
   FaDog,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Menu.css";
 import logo from "../../figs/logo-transformed-removebg-preview.png";
 import MenuBar from "../MenuBar/MenuBar";
+import axios from "axios";
 
 const Menu: React.FC = () => {
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState(""); // Estado para armazenar o nome do usuário
+
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+
+    axios
+      .get(`http://localhost:4000/users/${userId}`)
+      .then((response) => {
+        setUserName(response.data.nome);
+      })
+      .catch((error) => {
+        console.error("Erro ao obter o nome do usuário:", error);
+      });
+  }, []);
+
+  const handleLogout = () => {
+    // Limpar o ID do usuário e fazer logout
+    localStorage.removeItem("userId");
+    navigate("/login");
+  };
+
   return (
     <div className="menu-body">
-      
+      <div className="user-info">
+        <div className="user-name">{userName}</div> {/* Nome do usuário */}
+        <button className="menu-button" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
       <div className="menu-detail">
         <img src={logo} alt="Logo MyPet" className="menu-logo" />
         <div className="menu-container">

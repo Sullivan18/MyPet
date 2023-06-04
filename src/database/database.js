@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 
 const db = new sqlite3.Database('MyPet.db');
 
-// Cria a tabela "cachorros" com as colunas "imagem", "possui_sarna", "hash", "nome", "precisao" e "raca"
+// Cria a tabela "cachorros" com as colunas "imagem", "possui_sarna", "hash", "nome", "precisao", "raca" e "id_cliente"
 db.run(`CREATE TABLE IF NOT EXISTS cachorros (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     imagem BLOB,
@@ -10,8 +10,12 @@ db.run(`CREATE TABLE IF NOT EXISTS cachorros (
     hash TEXT UNIQUE,
     nome TEXT,
     precisao REAL,
-    raca TEXT
+    raca TEXT,
+    sexo TEXT, -- Adicionando a coluna "sexo"
+    id_cliente INTEGER,
+    FOREIGN KEY (id_cliente) REFERENCES cliente (id)
 )`);
+
 
 // Cria a tabela "cliente" com as colunas "nome", "email", "senha" e "cpf"
 db.run(`CREATE TABLE IF NOT EXISTS cliente (

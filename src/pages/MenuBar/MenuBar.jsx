@@ -8,7 +8,7 @@ const menuItems = [
   { id: 2, label: "Cadastro de pet", path: "/dogregister" },
   { id: 3, label: "Tutorial", path: "/tutorial" },
   { id: 4, label: "Histórico"},
-  { id: 5, label: "Equipe"}
+  { id: 5, label: "Equipe", path: "/team" },
   
 ];
 

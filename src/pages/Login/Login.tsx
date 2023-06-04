@@ -1,7 +1,8 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import MenuBar from "../MenuBar/MenuBar";
+import DogRegister from "../DogRegister/DogRegister";
 
 function Login() {
   const navigate = useNavigate();
@@ -21,6 +22,19 @@ function Login() {
     email: false,
     password: false,
   });
+
+  const [userId, setUserId] = useState(""); // Estado para armazenar o ID do usuário
+
+  useEffect(() => {
+    const storedUserId = localStorage.getItem("userId");
+    setUserId(storedUserId ?? "");
+  }, []);
+
+  useEffect(() => {
+    if (userId) {
+      navigate("/");
+    }
+  }, [userId, navigate]);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -102,8 +116,9 @@ function Login() {
       })
       .then((data) => {
         console.log(data);
-        // Lógica para redirecionar para a página principal após o login bem-sucedido
-        navigate("/");
+        setUserId(data.userId);
+        localStorage.setItem("userId", data.userId);
+        console.log("ID do usuário:", data.userId); // Imprimir o ID do usuário no log
       })
       .catch((error) => {
         console.error("Erro ao fazer login:", error.message);
@@ -125,13 +140,11 @@ function Login() {
   };
 
   const handleSignUpClick = () => {
-    // Lógica para redirecionar para a página de cadastro
-    navigate("/cadastro");
+    navigate("/register");
   };
 
   return (
     <div className="login-body">
-      <MenuBar />
       <div className="login-container">
         <h1 className="login-title">Login</h1>
         <form>
@@ -178,6 +191,7 @@ function Login() {
 
           {errors.login && <p className="login-error">{errors.login}</p>}
         </form>
+        {userId && <DogRegister userId={userId} />}
       </div>
     </div>
   );

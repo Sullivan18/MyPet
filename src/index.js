@@ -11,20 +11,23 @@ import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import DogRegister from './pages/DogRegister/DogRegister';
 import Tutorial from './pages/Tutorial/Tutorial';
+import Team from './pages/Team/Team';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Routes>
-        <Route path="/" element={ <Menu /> } />
-        <Route path="diagnosis" element={ <Diagnosis /> } />
-        <Route path="register" element={ <Register /> } />
-        <Route path="login" element={ <Login /> } />
-        <Route path="dogregister" element={ <DogRegister /> } />
-        <Route path="home" element={ <Home /> } />
-        <Route path="tutorial" element={ <Tutorial /> } />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route element={ <Login /> } />
+          <Route path="/" element={ <Menu /> } />
+          <Route path="diagnosis" element={ <Diagnosis /> } />
+          <Route path="register" element={ <Register /> } />
+          <Route path="login" element={ <Login /> } />
+          <Route path="dogregister" element={ <DogRegister /> } />
+          <Route path="home" element={ <Home /> } />
+          <Route path="tutorial" element={ <Tutorial /> } />
+          <Route path="team" element={ <Team /> } />
+        </Routes>
+      </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
