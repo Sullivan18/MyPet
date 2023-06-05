@@ -13,45 +13,29 @@ const Team = () => {
         <Link to="/" className="back-button">
           <FaArrowLeft />
         </Link>
-        <h1 className="team-title">Equipa</h1>
+        <h1 className="team-title">Equipe</h1>
         <div className="team-members">
+          <div className="team-member-role">
+            <img src={teamImage} className="team-member-images" />
+            <h2>André Luiz</h2>
+          </div>
+          <div className="team-member-role">
+            <img src={teamImage} className="team-member-images" />
+            <h2>Enzo Yuki </h2>
+          </div>
+        </div>
+        <div className="team-members">
+          <div className="team-member-role">
+            <img src={teamImage} className="team-member-images" />
+            <h2>Felipe Moraes</h2>
+          </div>
           <div className="team-member-role">
             <img
               src={teamImage}
               className="team-member-images"
               alt="Foto do Enzo"
             />
-            <h2>Enzo Yuki</h2>
-            <p>Japanese and tester</p>
-          </div>
-          <div>
-            <div className="team-member-role">
-              <img
-                src={teamImage}
-                className="team-member-images"
-                alt="Foto do Enzo"
-              />
-              <h2>Enzo Yuki</h2>
-              <p>Japanese and tester</p>
-            </div>
-            <div className="team-member-role">
-              <img
-                src={teamImage}
-                className="team-member-images"
-                alt="Foto do Enzo"
-              />
-              <h2>Enzo Yuki</h2>
-              <p>Japanese and tester</p>
-            </div>
-            <div className="team-member-role">
-              <img
-                src={teamImage}
-                className="team-member-images"
-                alt="Foto do Enzo"
-              />
-              <h2>Enzo Yuki</h2>
-              <p>Japanese and tester</p>
-            </div>
+            <h2>Raphael Augusto</h2>
           </div>
         </div>
       </div>

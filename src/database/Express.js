@@ -108,6 +108,52 @@ app.get('/users/:id', (req, res) => {
     const dbPath = path.join(__dirname, '..', 'MyPet.db');
     const db = new sqlite3.Database(dbPath);
 
+    const query = `
+        SELECT cliente.id, cliente.nome, cachorros.id AS cachorro_id, cachorros.nome AS cachorro_nome
+        FROM cliente
+        LEFT JOIN cachorros ON cliente.id = cachorros.id_cliente
+        WHERE cliente.id = ?
+    `;
+
+    db.all(query, [userId], (err, rows) => {
+        if (err) {
+            console.error('Erro ao buscar o usuário e os cachorros:', err);
+            res.status(500).json({ message: 'Erro ao buscar o usuário e os cachorros.' });
+        } else {
+            if (rows.length > 0) {
+                const user = {
+                    id: rows[0].id,
+                    nome: rows[0].nome,
+                    cachorros: []
+                };
+
+                rows.forEach(row => {
+                    if (row.cachorro_id) {
+                        const cachorro = {
+                            id: row.cachorro_id,
+                            nome: row.cachorro_nome
+                        };
+                        user.cachorros.push(cachorro);
+                    }
+                });
+
+                res.status(200).json(user);
+            } else {
+                res.status(404).json({ message: 'Usuário não encontrado.' });
+            }
+        }
+
+        db.close();
+    });
+});
+
+
+app.get('/users/:id', (req, res) => {
+    const userId = parseInt(req.params.id);
+
+    const dbPath = path.join(__dirname, '..', 'MyPet.db');
+    const db = new sqlite3.Database(dbPath);
+
     const query = 'SELECT id, nome FROM cliente WHERE id = ?';
     db.get(query, [userId], (err, row) => {
         if (err) {
@@ -126,23 +172,62 @@ app.get('/users/:id', (req, res) => {
 });
 
 app.post("/cachorros", (req, res) => {
-    const { breed, name, sex, id_cliente } = req.body;
+    const { breed, name, sex, hasMange, id_cliente } = req.body;
 
     const dbPath = path.join(__dirname, "..", "MyPet.db");
     const db = new sqlite3.Database(dbPath);
 
     const insertQuery =
-        "INSERT INTO cachorros (raca, nome, sexo, id_cliente) VALUES (?, ?, ?, ?)";
-    db.run(insertQuery, [breed, name, sex, id_cliente], function (err) {
-        if (err) {
-            console.error("Erro ao cadastrar cachorro:", err);
-            res.status(500).json({ error: "Erro ao cadastrar cachorro" });
-        } else {
-            const dogId = this.lastID;
-            res.json({ id: dogId, message: "Cachorro cadastrado com sucesso" });
+        "INSERT INTO cachorros (raca, nome, sexo, possui_sarna, id_cliente) VALUES (?, ?, ?, ?, ?)";
+    db.run(
+        insertQuery,
+        [breed, name, sex, hasMange, id_cliente],
+        function (err) {
+            if (err) {
+                console.error("Erro ao cadastrar cachorro:", err);
+                res.status(500).json({ error: "Erro ao cadastrar cachorro" });
+            } else {
+                const dogId = this.lastID;
+                res.json({ id: dogId, message: "Cachorro cadastrado com sucesso" });
+            }
         }
+    );
+});
+
+
+
+app.post('/salvar-diagnostico', (req, res) => {
+    const { resultado, precisao, selectedDog, photo } = req.body; // Obtenha o selectedDog, resultado, precisao e photo dos dados da requisição
+
+    let possuiSarna = false;
+
+    if (resultado === 'Cachorro com sarna') {
+        possuiSarna = true;
+    }
+
+    const dbPath = path.join(__dirname, '..', 'MyPet.db');
+    const db = new sqlite3.Database(dbPath);
+
+    const updateQuery = 'UPDATE cachorros SET possui_sarna = ?, imagem = ?, precisao = ? WHERE id = ?';
+    db.run(updateQuery, [possuiSarna, photo, parseFloat(precisao), selectedDog], function (err) {
+        if (err) {
+            console.error('Erro ao atualizar o diagnóstico no banco de dados:', err);
+            res.status(500).json({ message: 'Erro ao atualizar o diagnóstico no banco de dados.' });
+        } else {
+            console.log('Diagnóstico atualizado com sucesso.');
+            res.status(200).json({ message: 'Diagnóstico atualizado com sucesso.' });
+        }
+
+        db.close();
     });
 });
+
+
+
+
+
+
+
 
 app.get('/users/:id/dogs', (req, res) => {
     const userId = parseInt(req.params.id);

@@ -29,8 +29,6 @@
 }
 
 .choose-file-container {
-  display: flex;
-  justify-content: center;
 }
 
 .choose-file-button {
@@ -42,12 +40,7 @@
   cursor: pointer;
   font-size: 14px;
   text-transform: uppercase;
-}
-
-.submit-button-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
+  margin-right: 7px
 }
 
 .submit-button {
@@ -59,7 +52,43 @@
   cursor: pointer;
   font-size: 14px;
   text-transform: uppercase;
+  margin-left: 5px;
 }
+.dog-select label{
+  margin-left: 40px;
+  margin-right: 10px;
+  color: #303b8f;
+  font-size: 15px;
+  font-family: constantia, sans-serif;
+}
+
+.dog-select{
+  display: flex;
+  justify-content: center;
+}
+.join{
+  display: flex;
+  justify-content: center;
+
+}
+.dog-select select {
+  background-color: #3691E0;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  -webkit-appearance: none; /* Remove a aparência padrão do dropdown */
+  -moz-appearance: none;
+  appearance: none;
+  /* Adicione uma imagem como background para simular a seta */
+  /* Ajuste o padding do select para acomodar a imagem da seta */
+  padding-right: 30px;
+}
+
 
 .result {
   text-align: center;

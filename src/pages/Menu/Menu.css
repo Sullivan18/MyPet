@@ -6,7 +6,26 @@
   min-height: 100vh;
   margin: 0;
 }
-
+.menu-logout{
+  position: absolute;
+  left:0;
+  top:0;
+  margin-top:10px;
+  margin-left: 10px;
+  background-color: #3691E0;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 15px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+  gap: 8px;
+  width: 150px;
+  transition: background-color 0.3s ease;
+  text-decoration: none; /* Remover o sublinhado */
+}
 .menu-detail {
   display: flex;
   align-items: center;

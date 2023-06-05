@@ -37,12 +37,9 @@ const Menu: React.FC = () => {
 
   return (
     <div className="menu-body">
-      <div className="user-info">
-        <div className="user-name">{userName}</div> {/* Nome do usuário */}
-        <button className="menu-button" onClick={handleLogout}>
+      <button className="menu-logout" onClick={handleLogout}>
           Logout
         </button>
-      </div>
       <div className="menu-detail">
         <img src={logo} alt="Logo MyPet" className="menu-logo" />
         <div className="menu-container">
