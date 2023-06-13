@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Detecção de Sarna em Cachorros usando Inteligência Artificial
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto de detecção de sarna em cachorros utilizando inteligência artificial. O projeto consiste em um frontend que interage com uma API para realizar a detecção.
 
-## Available Scripts
+## Funcionamento
 
-In the project directory, you can run:
+O projeto é dividido em duas partes: o frontend e a API.
 
-### `npm start`
+### Frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O frontend é desenvolvido em JavaScript e utiliza o framework React. Ele é responsável por fornecer a interface do usuário para interagir com a funcionalidade de detecção de sarna em cachorros. Para iniciar o frontend, siga as etapas abaixo:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Certifique-se de ter o Node.js instalado no seu computador. Você pode verificar digitando `node --version` no terminal. Se o Node.js não estiver instalado, você precisará instalá-lo primeiro.
 
-### `npm test`
+2. Abra o terminal ou prompt de comando e navegue até o diretório do projeto.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Execute o seguinte comando para instalar as dependências do projeto:
 
-### `npm run build`
+   ```
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Após a conclusão da instalação, execute o seguinte comando para iniciar o frontend:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   O frontend será iniciado e estará acessível no navegador através do endereço `http://localhost:3000`.
 
-### `npm run eject`
+### API
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+A API é desenvolvida em JavaScript e utiliza o framework Express.js. Ela é responsável por receber as requisições do frontend e enviar as informações para a API em python que a detecção de sarna em cachorros utilizando inteligência artificial. Para iniciar a API, siga as etapas abaixo:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Certifique-se de ter o Node.js instalado no seu computador. Você pode verificar digitando `node --version` no terminal. Se o Node.js não estiver instalado, você precisará instalá-lo primeiro.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Abra o terminal ou prompt de comando e navegue até o diretório `src/database` do projeto.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Execute o seguinte comando para instalar as dependências da API:
 
-## Learn More
+   ```
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Após a conclusão da instalação, execute o seguinte comando para iniciar a API:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```
+   node src/database/Express.js
+   ```
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   A API será iniciada e estará pronta para receber as requisições do frontend.
