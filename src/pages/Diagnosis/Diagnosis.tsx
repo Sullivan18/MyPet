@@ -154,10 +154,10 @@ function Diagnosis(): JSX.Element {
             {result}
           </p>
         )}
-
-        {precision && (
+        
+        {/*{precision && (
           <p className="precision">Precisão: {precision.toFixed(2)}%</p>
-        )}
+        )}*/}
 
         {imageUrl ? (
           <div className="image-container">
