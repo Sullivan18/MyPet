@@ -1,51 +1,54 @@
-# Detecção de Sarna em Cachorros usando Inteligência Artificial
+```markdown
+# Dog Mange Detection using Artificial Intelligence
 
-Este é um projeto de detecção de sarna em cachorros utilizando inteligência artificial. O projeto consiste em um frontend que interage com uma API para realizar a detecção.
+This is a project for detecting dog mange using artificial intelligence. The project consists of a frontend that interacts with an API to perform the detection.
 
-## Funcionamento
+## How It Works
 
-O projeto é dividido em duas partes: o frontend e a API.
+The project is divided into two parts: the frontend and the API.
 
 ### Frontend
 
-O frontend é desenvolvido em JavaScript e utiliza o framework React. Ele é responsável por fornecer a interface do usuário para interagir com a funcionalidade de detecção de sarna em cachorros. Para iniciar o frontend, siga as etapas abaixo:
+The frontend is developed in JavaScript and uses the React framework. It is responsible for providing the user interface to interact with the dog mange detection functionality. To start the frontend, follow the steps below:
 
-1. Certifique-se de ter o Node.js instalado no seu computador. Você pode verificar digitando `node --version` no terminal. Se o Node.js não estiver instalado, você precisará instalá-lo primeiro.
+1. Make sure you have Node.js installed on your computer. You can check by typing `node --version` in the terminal. If Node.js is not installed, you will need to install it first.
 
-2. Abra o terminal ou prompt de comando e navegue até o diretório do projeto.
+2. Open the terminal or command prompt and navigate to the project directory.
 
-3. Execute o seguinte comando para instalar as dependências do projeto:
+3. Run the following command to install the project dependencies:
 
    ```
    npm install
    ```
 
-4. Após a conclusão da instalação, execute o seguinte comando para iniciar o frontend:
+4. After the installation is complete, run the following command to start the frontend:
 
    ```
    npm start
    ```
 
-   O frontend será iniciado e estará acessível no navegador através do endereço `http://localhost:3000`.
+   The frontend will start and be accessible in the browser at `http://localhost:3000`.
 
 ### API
 
-A API é desenvolvida em JavaScript e utiliza o framework Express.js. Ela é responsável por receber as requisições do frontend e enviar as informações para a API em python que a detecção de sarna em cachorros utilizando inteligência artificial. Para iniciar a API, siga as etapas abaixo:
+The API is developed in JavaScript and uses the Express.js framework. It is responsible for receiving requests from the frontend and sending the information to the Python API that performs the dog mange detection using artificial intelligence. To start the API, follow the steps below:
 
-1. Certifique-se de ter o Node.js instalado no seu computador. Você pode verificar digitando `node --version` no terminal. Se o Node.js não estiver instalado, você precisará instalá-lo primeiro.
+1. Make sure you have Node.js installed on your computer. You can check by typing `node --version` in the terminal. If Node.js is not installed, you will need to install it first.
 
-2. Abra o terminal ou prompt de comando e navegue até o diretório `src/database` do projeto.
+2. Open the terminal or command prompt and navigate to the `src/database` directory of the project.
 
-3. Execute o seguinte comando para instalar as dependências da API:
+3. Run the following command to install the API dependencies:
 
    ```
    npm install
    ```
 
-4. Após a conclusão da instalação, execute o seguinte comando para iniciar a API:
+4. After the installation is complete, run the following command to start the API:
 
    ```
    node src/database/Express.js
    ```
 
-   A API será iniciada e estará pronta para receber as requisições do frontend.
+   The API will start and be ready to receive requests from the frontend.
+```
+```
