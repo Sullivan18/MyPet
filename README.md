@@ -1,4 +1,4 @@
-```markdown
+
 # Dog Mange Detection using Artificial Intelligence
 
 This is a project for detecting dog mange using artificial intelligence. The project consists of a frontend that interacts with an API to perform the detection.
