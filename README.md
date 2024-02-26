@@ -50,5 +50,4 @@ The API is developed in JavaScript and uses the Express.js framework. It is resp
    ```
 
    The API will start and be ready to receive requests from the frontend.
-```
-```
+
